@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * TaskFlow - Modern Task Management Application Color Scheme
+   * Colors expressed as HSL values for Tailwind CSS compatibility
+  */
+  :root {
+    /* Base colors */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 20%;
+
+    --muted: 210 40% 94%;
+    --muted-foreground: 222 8% 55%;
+
+    --accent: 210 100% 97%;
+    --accent-foreground: 222 47% 20%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 100% 50%;
+    --warning-foreground: 50 100% 90%;
+
+    --border: 210 40% 90%;
+    --input: 210 40% 90%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    --status-pending: 35 100% 50%;
+    --status-progress: 221 83% 53%;
+    --status-review: 265 70% 60%;
+    --status-completed: 142 71% 45%;
+    --status-overdue: 0 72% 51%;
+
+    --priority-low: 142 71% 45%;
+    --priority-medium: 35 100% 50%;
+    --priority-high: 0 72% 51%;
+    --priority-critical: 277 70% 55%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 8% 40%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 210 40% 90%;
+    --sidebar-ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 20%;
+
+    --muted: 210 40% 94%;
+    --muted-foreground: 222 8% 55%;
+
+    --accent: 210 100% 97%;
+    --accent-foreground: 222 47% 20%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 100% 50%;
+    --warning-foreground: 50 100% 90%;
+
+    --border: 210 40% 90%;
+    --input: 210 40% 90%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    --status-pending: 35 100% 50%;
+    --status-progress: 221 83% 53%;
+    --status-review: 265 70% 60%;
+    --status-completed: 142 71% 45%;
+    --status-overdue: 0 72% 51%;
+
+    --priority-low: 142 71% 45%;
+    --priority-medium: 35 100% 50%;
+    --priority-high: 0 72% 51%;
+    --priority-critical: 277 70% 55%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 8% 40%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 210 40% 90%;
+    --sidebar-ring: 221 83% 53%;
+
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

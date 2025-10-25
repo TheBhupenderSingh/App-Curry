@@ -1,0 +1,13 @@
+feature,weight
+itc_paid_more_than_accumulated,0.29525786852360286
+single_customer,0.29287391166109894
+More than 80pct ITC passed on,0.26526806881253945
+high_fluctuations_qoq,0.1466001510027588
+gcfpa_flag,1.6764255318701506e-22
+single_vendor,5.785271823646346e-23
+gvfpa_flag,0.0
+r1_gtr_3b,0.0
+purchase_while_suspended,0.0
+sale_to_suspended_gstins_pre3months,0.0
+DIN_flag,0.0
+purchase_present_filing_not_present,0.0
