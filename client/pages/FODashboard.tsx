@@ -25,6 +25,7 @@ import {
   Edit,
   TrendingUp,
 } from "lucide-react";
+import { BASE_URL } from "@/config";
 
 // Mock data for FO tasks
 const foStats = {
@@ -113,7 +114,7 @@ export function FODashboard() {
 useEffect(() => {
 const fetchTasks = async () => {
 try {
-const res = await fetch(`http://localhost:9090/fo/myTask/${email}`);
+const res = await fetch(`${BASE_URL}/fo/myTask/${email}`);
 const data = await res.json();
 
 

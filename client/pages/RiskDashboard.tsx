@@ -14,6 +14,7 @@ import {
 } from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
 import RiskModelPredictions from "./RiskModelPredictions";
+import { BASE_URL } from "@/config";
 
 // --- INTERFACES ---
 interface RocCurve {
@@ -65,7 +66,7 @@ const RiskDashboard: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get<PythonRiskData>("http://localhost:9090/api/python/risk")
+      .get<PythonRiskData>(BASE_URL + "/api/python/risk")
       .then((res) => setData(res.data))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

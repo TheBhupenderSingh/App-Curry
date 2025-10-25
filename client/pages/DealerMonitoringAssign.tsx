@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import axios from "axios";
+import { BASE_URL } from "@/config";
 
 
 interface CaseEntity {
@@ -76,7 +77,7 @@ const DealerMonitoringAssign: React.FC = () => {
    useEffect(() => {
     const fetchCases = async () => {
       try {
-        const res = await axios.get<CaseEntity[]>("http://localhost:9090/api/cases");
+        const res = await axios.get<CaseEntity[]>(BASE_URL + "/api/cases");
         setcasesData(res.data);
       } catch (err) {
         console.error("Error fetching cases:", err);
@@ -89,9 +90,9 @@ const DealerMonitoringAssign: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    axios.get("http://localhost:9090/admin/divisions").then((res) => setDivisions(res.data));
-    axios.get("http://localhost:9090/admin/subdivisions").then((res) => setSubdivisions(res.data));
-    axios.get("http://localhost:9090/admin/designations").then((res) => setDesignations(res.data));
+    axios.get(BASE_URL + "/admin/divisions").then((res) => setDivisions(res.data));
+    axios.get(BASE_URL + "/admin/subdivisions").then((res) => setSubdivisions(res.data));
+    axios.get(BASE_URL + "/admin/designations").then((res) => setDesignations(res.data));
   }, []);
 
    const [userFilters, setUserFilters] = useState({
@@ -185,7 +186,7 @@ const DealerMonitoringAssign: React.FC = () => {
   const currentUserId = localStorage.getItem("userId"); // depends on your auth system
 
   try {
-    await axios.post("http://localhost:9090/api/cases/assign", {
+    await axios.post(BASE_URL + "/api/cases/assign", {
       caseIds: selectedCases,
       userIds: selectedUsers,
       assignedByUserId: currentUserId,

@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import axios from "axios";
 import { toast } from "@/components/ui/use-toast";
+import { BASE_URL } from "@/config";
 
 // Mock data for team members
 
@@ -50,7 +51,7 @@ const [success, setSuccess] = useState(false);
 useEffect(() => {
   const fetchFos = async () => {
     try {
-      const response = await axios.get("http://localhost:9090/ho/findUsers"); // ✅ updated endpoint
+      const response = await axios.get(BASE_URL + "/ho/findUsers"); // ✅ updated endpoint
       setFoUsers(response.data);
     } catch (error) {
       console.error("Error fetching FO users:", error);
@@ -89,7 +90,7 @@ useEffect(() => {
      };
 
     const response = await axios.post(
-      "http://localhost:9090/ho/assignTask",
+      BASE_URL + "/ho/assignTask",
       payload
     );
      toast({

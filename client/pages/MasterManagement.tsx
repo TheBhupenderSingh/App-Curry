@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { BASE_URL } from "@/config";
 
 interface Division {
   id: number;
@@ -45,9 +46,9 @@ export default function PeopleFilterPage() {
 
   // Fetch data on mount
   useEffect(() => {
-    fetch("http://localhost:9090/admin/divisions").then(res => res.json()).then(setDivisions);
-    fetch("http://localhost:9090/admin/subdivisions").then(res => res.json()).then(setSubdivisions);
-    fetch("http://localhost:9090/admin/designations").then(res => res.json()).then(setDesignations);
+    fetch(BASE_URL + "/admin/divisions").then(res => res.json()).then(setDivisions);
+    fetch(BASE_URL + "/admin/subdivisions").then(res => res.json()).then(setSubdivisions);
+    fetch(BASE_URL + "/admin/designations").then(res => res.json()).then(setDesignations);
   }, []);
 
   const handleSearch = () => {
@@ -57,7 +58,7 @@ export default function PeopleFilterPage() {
   if (selectedSubdivision) params.append("subDivisionId", selectedSubdivision);
   if (selectedDesignation) params.append("designationId", selectedDesignation);
 
-  fetch(`http://localhost:9090/admin/assignments?${params.toString()}`)
+  fetch(`${BASE_URL}/admin/assignments?${params.toString()}`)
     .then(res => res.json())
     .then((data) => {
       console.log("Fetched assignments:", data);

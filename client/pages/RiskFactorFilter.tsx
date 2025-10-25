@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Info } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { BASE_URL } from "@/config";
 
 interface RiskFactor {
   gstin: string;
@@ -145,7 +146,7 @@ const navigate = useNavigate();
         if (range.max !== null) payload[`${param}Max`] = range.max;
       });
 
-      const res = await axios.post("http://localhost:9090/fraud/filter", payload);
+      const res = await axios.post(BASE_URL + "/fraud/filter", payload);
       setData(res.data);
       setDisplayData(res.data); // <- initialize displayData
     } catch (err) {

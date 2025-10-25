@@ -32,6 +32,7 @@ import {
   Calendar,
   User,
 } from "lucide-react";
+import { BASE_URL } from "@/config";
 
 // Mock data for demonstration
 
@@ -142,7 +143,7 @@ export function HODashboard() {
   const fetchTasks = async () => {
     try {
       const res = await fetch(
-        `http://localhost:9090/ho/myTask/${email}`
+        `${BASE_URL}/ho/myTask/${email}`
       );
       const data = await res.json();
 

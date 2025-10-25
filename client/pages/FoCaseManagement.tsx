@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { BASE_URL } from "@/config";
 
 interface User {
   id: number;
@@ -40,7 +41,7 @@ export default function FoCaseManagement() {
     const userId = localStorage.getItem("userId"); 
     if (!userId) return;
 
-    fetch(`http://localhost:9090/api/cases/assignto?userId=${userId}`)
+    fetch(`${BASE_URL}/api/cases/assignto?userId=${userId}`)
       .then((res) => res.json())
       .then((data: CaseAssignment[]) => {
         setAssignments(data);
@@ -76,7 +77,7 @@ export default function FoCaseManagement() {
       remarks: draft.caseEntity.remark,
     };
 
-    fetch(`http://localhost:9090/api/cases/update/${id}`, {
+    fetch(`${BASE_URL}/api/cases/update/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),

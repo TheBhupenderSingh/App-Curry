@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Loader2 } from "lucide-react";
+import { BASE_URL } from "@/config";
 
 interface ModelPrediction {
   gstin: string;
@@ -19,7 +20,7 @@ const RiskModelPredictions: React.FC = () => {
       setError(null);
 
       try {
-        const res = await fetch("http://localhost:9090/api/python/risknew");
+        const res = await fetch(BASE_URL + "/api/python/risknew");
         if (!res.ok) throw new Error(`HTTP ${res.status} - ${res.statusText}`);
 
         const json = await res.json();

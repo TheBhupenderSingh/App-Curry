@@ -21,6 +21,7 @@ import {
   ChevronDown,
   ChevronRight,
 } from "lucide-react";
+import { BASE_URL } from "@/config";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -52,7 +53,7 @@ useEffect(() => {
 
   const fetchDivisionName = async () => {
     try {
-      const res = await fetch(`http://localhost:9090/admin/assignments?userId=${userId}`);
+      const res = await fetch(`${BASE_URL}/admin/assignments?userId=${userId}`);
       if (!res.ok) throw new Error("Failed to fetch user assignment");
       const data = await res.json();
 

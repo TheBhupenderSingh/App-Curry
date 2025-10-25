@@ -52,6 +52,7 @@ import {
   Flag,
   Archive,
 } from "lucide-react";
+import { BASE_URL } from "@/config";
 
 // Extended mock data for HO oversight
 const hoTaskData = {
@@ -217,7 +218,7 @@ export function HOTaskDetails() {
     const fetchTask = async () => {
       try {
         const numericId = id?.replace(/^T/, ""); // since your API expects numeric id
-        const res = await fetch(`http://localhost:9090/fo/myTaskWithId/${numericId}`);
+        const res = await fetch(`${BASE_URL}/fo/myTaskWithId/${numericId}`);
         const data = await res.json();
 
         // map API response → component format

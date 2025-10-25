@@ -56,6 +56,7 @@ import {
   AlertTriangle,
   CheckCircle2,
 } from "lucide-react";
+import { BASE_URL } from "@/config";
 
 interface User {
   id: string;
@@ -218,13 +219,13 @@ const uniqueDivisions = Array.from(
   new Map(assignments.map(a => [a.subDivision.division.id, a.subDivision.division])).values()
 );
 useEffect(() => {
-  fetch("http://localhost:9090/admin/assignments")
+  fetch(BASE_URL + "/admin/assignments")
     .then((res) => res.json())
     .then((data) => setAssignments(data));
 }, []);
 
 useEffect(() => {
-  fetch("http://localhost:9090/admin/assignments")
+  fetch(BASE_URL + "/admin/assignments")
     .then((res) => res.json())
     
     .then((data) => {

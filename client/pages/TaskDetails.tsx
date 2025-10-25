@@ -46,6 +46,7 @@ import {
   Plus,
   Activity,
 } from "lucide-react";
+import { BASE_URL } from "@/config";
 
 // Mock data - in real app this would come from API
 const taskData = {
@@ -150,7 +151,7 @@ export function TaskDetails() {
     try {
       const numericId = id?.replace(/^T/, "");
       const response = await fetch(
-        `http://localhost:9090/fo/myTaskWithId/${numericId}`
+        `${BASE_URL}/fo/myTaskWithId/${numericId}`
       );
       if (!response.ok) throw new Error("Failed to fetch task");
 

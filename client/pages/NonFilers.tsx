@@ -17,6 +17,7 @@ import axios from "axios";
 
 
 import { saveAs } from "file-saver";
+import { BASE_URL } from "@/config";
 
 
 interface Division {
@@ -106,7 +107,7 @@ export default function NonFilers() {
       // Example hardcoded params (can be state-controlled inputs from your UI)
       
       const response = await fetch(
-        `http://localhost:9090/api/python/run?fy=${fy}&returnType=${returnType}&targetMonth=${encodeURIComponent(targetMonth)}`,
+        `${BASE_URL}/api/python/run?fy=${fy}&returnType=${returnType}&targetMonth=${encodeURIComponent(targetMonth)}`,
         { method: "POST" }
       );
 
@@ -139,9 +140,6 @@ export default function NonFilers() {
 }, [taxpayers]);
 
 
-
- 
-
   // optional filters
   const [division, setDivision] = useState("");
   const [circle, setCircle] = useState("");
@@ -163,12 +161,12 @@ export default function NonFilers() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-         fetch("http://localhost:9090/admin/divisions")
+         fetch(BASE_URL + "/admin/divisions")
     .then((res) => res.json())
     .then(setDivisions)
     .catch((err) => console.error("Error fetching divisions:", err));
 
-    fetch("http://localhost:9090/admin/subdivisions")
+    fetch(BASE_URL + "/admin/subdivisions")
     .then((res) => res.json())
     .then(setSubdivisions)
     .catch((err) => console.error("Error fetching subdivisions:", err));
@@ -185,7 +183,7 @@ export default function NonFilers() {
     setLoading(true);
     try {
       const response = await axios.post<Taxpayer[]>(
-       "http://localhost:9090/api/python/taxpayer",
+       BASE_URL + "/api/python/taxpayer",
         {
           division: division || null,
           circle: circle || null,

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { BASE_URL } from "@/config";
 
 // Types
 interface CaseEntity {
@@ -45,7 +46,7 @@ export default function DealerMonitoringReview() {
       return;
     }
 
-    fetch(`http://localhost:9090/api/cases/assignments?assignedByUserId=${assignedByUserId}`)
+    fetch(`${BASE_URL}/api/cases/assignments?assignedByUserId=${assignedByUserId}`)
       .then((res) => res.json())
       .then((data: CaseAssignment[]) => {
         setAssignments(data);
