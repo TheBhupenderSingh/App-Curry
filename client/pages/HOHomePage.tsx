@@ -18,10 +18,10 @@ const userString = localStorage.getItem("currentUser");
                 )}&division=${encodeURIComponent(user.division)}`;
 
   const modules = [
-    { name: "Revenue Tracking ", path: "http://localhost:7070/GstRevenueOverview" },
-     { name: "Sectoral Analysis", path: url },
+    { name: "Revenue Tracking ", path: "/GstRevenueOverview" },
+     { name: "Sectoral Analysis", path: "/SectoralDashboard" },
     { name: "Fraud Detection Analytics", path: "/FraudAnalysis" },
-    { name: "Taxpayer Overview", path: "http://localhost:7070/taxpayeroverview" },
+    { name: "Taxpayer Overview", path: "/ActiveTaxpayerOverview" },
       { name: "Get Taxpayer Details", path: "/GetTaxpayerDetails" },
      { name: "Non Filers", path: "/nonfilers" },
      

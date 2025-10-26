@@ -35,6 +35,10 @@ import RiskDashboard from "./pages/RiskDashboard";
 import RiskModelPredictions from "./pages/RiskModelPredictions";
 import EnforcementOverview from "./pages/EnforcementOverview";
 import NGTPOverview from "./pages/NGTPOverview";
+import ActiveTaxpayerOverview from "./Dashboards/ActiveTaxpayerOverview";
+import SectoralDashboard from "./Dashboards/SectoralDashboard";
+import GstRevenueOverview from "./Dashboards/GstRevenueOverview";
+
 
 function AppContent() {
   const location = useLocation();
@@ -160,6 +164,10 @@ function AppContent() {
         <Route path="/RiskTable" element={<RiskModelPredictions />} />
         <Route path="/Enforcement" element={<EnforcementOverview />} />
         <Route path="/NGTP" element={<NGTPOverview />} />
+        <Route path="/ActiveTaxpayerOverview" element={<ActiveTaxpayerOverview />} />
+        <Route path="/SectoralDashboard" element={<SectoralDashboard />} />
+        <Route path="/GstRevenueOverview" element={<GstRevenueOverview />} />
+
         
 
 
