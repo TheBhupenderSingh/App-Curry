@@ -3117,3 +3117,334 @@
 2025-10-06 19:13:53,607 - INFO - === Part 3: Updating master sheet, Summary & Defaulters ===
 2025-10-06 19:13:53,887 - INFO - Wrote updated master → c:\Users\a-bhupensingh\IdeaProjects\python\Updated_Master_GSTIN_Status.xlsx
 2025-10-06 19:13:54,463 - INFO - Added Division & Circle summaries → c:\Users\a-bhupensingh\IdeaProjects\python\Updated_Master_GSTIN_Status.xlsx
+2025-11-21 13:07:47,264 - INFO - >>> Starting GSTIN filing status processing <<<
+2025-11-21 13:07:47,265 - INFO - === Fetching Taxpayer Data from SQL Server ===
+2025-11-21 13:16:27,925 - INFO - >>> Starting GSTIN filing status processing <<<
+2025-11-21 13:16:27,925 - INFO - === Fetching Taxpayer Data from SQL Server ===
+2025-11-21 13:31:57,761 - INFO - >>> Starting GSTIN filing status processing <<<
+2025-11-21 13:31:57,761 - INFO - === Fetching Taxpayer Data from SQL Server ===
+2025-11-21 13:31:57,765 - INFO - Fetched 99 rows from SQL.
+2025-11-21 13:31:57,765 - INFO - First few rows: [('22ABPCS9238K1DZ', 'Bilaspur Division', 'Bilaspur-2', 'SHR**********TED', 'STATE', None, 'scc**********com', datetime.date(2025, 7, 5), 'active', 'TDS', 'Others', None, 'Filed', "October'25", datetime.date(2025, 11, 10), 4, datetime.date(2025, 11, 18)), ('22ABWFM9039L1DR', 'Bilaspur Division', 'Bilaspur-1', 'MAH**********SES', 'STATE', None, 'SBD**********COM', datetime.date(2025, 3, 29), 'active', 'TDS', 'Others', None, 'Filed', "September'25", datetime.date(2025, 10, 9), 6, datetime.date(2025, 11, 18)), ('22ACDAS3845H1DR', 'Bilaspur Division', 'Gaurela-Pendra-Marwahi', 'SWA**********PAN', 'CENTER', None, 'jaj**********com', datetime.date(2025, 7, 14), 'active', 'TDS', 'Society established by Central / State ', None, 'Filed', "October'25", datetime.date(2025, 11, 5), 4, datetime.date(2025, 11, 18)), ('22ACDFA1276B1DE', 'Bilaspur Division', 'Bilaspur-2', 'ANJ**********ELS', 'STATE', None, 'anj**********com', datetime.date(2025, 1, 22), 'active', 'TDS', 'Others', None, 'Filed', "October'25", datetime.date(2025, 11, 5), 7, datetime.date(2025, 11, 18)), ('22ACOAS3515P1D8', 'Bilaspur Division', 'Bilaspur-2', 'SWA**********DRI', 'STATE', None, 'ghs**********com', datetime.date(2025, 6, 13), 'active', 'TDS', 'Authority or board or any other body notified by ', None, 'Filed', "July'25", datetime.date(2025, 9, 11), 2, datetime.date(2025, 11, 18))]
+2025-11-21 13:31:57,765 - INFO - Columns: ['GSTIN', 'Division', 'Circle', 'Trade_Legal_Name', 'Assigned_To', 'Mobile_No', 'Email_ID', 'Date_of_Grant_of_Registration', 'status', 'taxpayer_type', 'constitution_of_business', 'Type_of_filers', 'Filing_Status', 'last_return_filed', 'Date_of_filing', 'No_of_default_period', 'Updated_Time']
+2025-11-21 13:37:18,475 - INFO - >>> Starting GSTIN filing status processing <<<
+2025-11-21 13:37:18,476 - INFO - === Fetching Taxpayer Data from SQL Server ===
+2025-11-21 13:37:18,480 - INFO - Fetched 99 rows from SQL.
+2025-11-21 13:37:18,480 - INFO - First few rows: [('22ABPCS9238K1DZ', 'Bilaspur Division', 'Bilaspur-2', 'SHR**********TED', 'STATE', None, 'scc**********com', datetime.date(2025, 7, 5), 'active', 'TDS', 'Others', None, 'Filed', "October'25", datetime.date(2025, 11, 10), 4, datetime.date(2025, 11, 18)), ('22ABWFM9039L1DR', 'Bilaspur Division', 'Bilaspur-1', 'MAH**********SES', 'STATE', None, 'SBD**********COM', datetime.date(2025, 3, 29), 'active', 'TDS', 'Others', None, 'Filed', "September'25", datetime.date(2025, 10, 9), 6, datetime.date(2025, 11, 18)), ('22ACDAS3845H1DR', 'Bilaspur Division', 'Gaurela-Pendra-Marwahi', 'SWA**********PAN', 'CENTER', None, 'jaj**********com', datetime.date(2025, 7, 14), 'active', 'TDS', 'Society established by Central / State ', None, 'Filed', "October'25", datetime.date(2025, 11, 5), 4, datetime.date(2025, 11, 18)), ('22ACDFA1276B1DE', 'Bilaspur Division', 'Bilaspur-2', 'ANJ**********ELS', 'STATE', None, 'anj**********com', datetime.date(2025, 1, 22), 'active', 'TDS', 'Others', None, 'Filed', "October'25", datetime.date(2025, 11, 5), 7, datetime.date(2025, 11, 18)), ('22ACOAS3515P1D8', 'Bilaspur Division', 'Bilaspur-2', 'SWA**********DRI', 'STATE', None, 'ghs**********com', datetime.date(2025, 6, 13), 'active', 'TDS', 'Authority or board or any other body notified by ', None, 'Filed', "July'25", datetime.date(2025, 9, 11), 2, datetime.date(2025, 11, 18))]
+2025-11-21 13:37:18,480 - INFO - Columns: ['GSTIN', 'Division', 'Circle', 'Trade_Legal_Name', 'Assigned_To', 'Mobile_No', 'Email_ID', 'Date_of_Grant_of_Registration', 'status', 'taxpayer_type', 'constitution_of_business', 'Type_of_filers', 'Filing_Status', 'last_return_filed', 'Date_of_filing', 'No_of_default_period', 'Updated_Time']
+2025-11-21 13:39:56,376 - INFO - >>> Starting GSTIN filing status processing <<<
+2025-11-21 13:39:56,377 - INFO - === Part 1: Extract Pending GSTINs ===
+2025-11-21 13:39:56,523 - INFO - Found 99 pending GSTINs
+2025-11-21 13:39:56,531 - INFO - Saved batch 0 → output\pending_GSTR7_gstin_list_0.csv
+2025-11-21 13:39:56,533 - INFO - === Part 2: Processing batch output\pending_GSTR7_gstin_list_0.csv ===
+2025-11-21 13:39:56,557 - DEBUG - Fetching 22ABPCS9238K1DZ FY=2025
+2025-11-21 13:39:56,558 - DEBUG - Fetching 22ABWFM9039L1DR FY=2025
+2025-11-21 13:39:56,559 - DEBUG - Fetching 22ACDAS3845H1DR FY=2025
+2025-11-21 13:39:56,559 - DEBUG - Fetching 22ACDFA1276B1DE FY=2025
+2025-11-21 13:39:56,560 - DEBUG - Fetching 22ACOAS3515P1D8 FY=2025
+2025-11-21 13:39:56,560 - DEBUG - Fetching 22ACQAS1002F1D5 FY=2025
+2025-11-21 13:39:56,561 - DEBUG - Fetching 22ADNFS9077P1DC FY=2025
+2025-11-21 13:39:56,562 - DEBUG - Fetching 22AFYPA7775B1DM FY=2025
+2025-11-21 13:39:56,562 - DEBUG - Fetching 22AGSPA3777A1DY FY=2025
+2025-11-21 13:39:56,563 - DEBUG - Fetching 22AHYPA8034B1DW FY=2025
+2025-11-21 13:39:56,572 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:56,574 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:56,576 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:56,582 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:56,589 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:56,599 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:56,590 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:56,596 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:56,594 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:56,600 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:59,437 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 274
+2025-11-21 13:39:59,442 - DEBUG - Fetching 22AIMPK8043R1DX FY=2025
+2025-11-21 13:39:59,445 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:59,733 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 510
+2025-11-21 13:39:59,734 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 510
+2025-11-21 13:39:59,737 - DEBUG - Fetching 22AJRPM8667R1DA FY=2025
+2025-11-21 13:39:59,742 - DEBUG - Fetching 22FLLPS6360C1DA FY=2025
+2025-11-21 13:39:59,745 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:59,746 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:59,764 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:39:59,768 - DEBUG - Fetching 22JBCP01736A1D2 FY=2025
+2025-11-21 13:39:59,769 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 510
+2025-11-21 13:39:59,775 - DEBUG - Fetching 22JBPA01674B1DD FY=2025
+2025-11-21 13:39:59,776 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 397
+2025-11-21 13:39:59,782 - DEBUG - Fetching 22JBPA02040D1DN FY=2025
+2025-11-21 13:39:59,784 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:59,786 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:59,787 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:59,807 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:39:59,812 - DEBUG - Fetching 22JBPA02274G1D5 FY=2025
+2025-11-21 13:39:59,813 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 733
+2025-11-21 13:39:59,818 - DEBUG - Fetching 22JBPA02343F1DD FY=2025
+2025-11-21 13:39:59,827 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:39:59,828 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:00,075 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 510
+2025-11-21 13:40:00,162 - DEBUG - Fetching 22JBPA02344G1DA FY=2025
+2025-11-21 13:40:00,164 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:01,062 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:01,068 - DEBUG - Fetching 22JBPA02346B1DI FY=2025
+2025-11-21 13:40:01,092 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:01,729 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:01,733 - DEBUG - Fetching 22JBPA02472B1DF FY=2025
+2025-11-21 13:40:01,735 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:01,904 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:01,908 - DEBUG - Fetching 22JBPA02522C1DM FY=2025
+2025-11-21 13:40:01,911 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:01,962 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 389
+2025-11-21 13:40:01,966 - DEBUG - Fetching 22JBPA02715G1DB FY=2025
+2025-11-21 13:40:01,968 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:02,033 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:02,037 - DEBUG - Fetching 22JBPA02875F1D0 FY=2025
+2025-11-21 13:40:02,043 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:02,151 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:02,155 - DEBUG - Fetching 22JBPA03018B1DN FY=2025
+2025-11-21 13:40:02,157 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:02,540 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:02,545 - DEBUG - Fetching 22JBPA03054C1DH FY=2025
+2025-11-21 13:40:02,548 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:02,588 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:02,593 - DEBUG - Fetching 22JBPA04369B1D7 FY=2025
+2025-11-21 13:40:02,603 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:02,785 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:02,790 - DEBUG - Fetching 22JBPA04445A1DG FY=2025
+2025-11-21 13:40:02,807 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:03,433 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:03,438 - DEBUG - Fetching 22JBPA04464F1D3 FY=2025
+2025-11-21 13:40:03,440 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:03,763 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:03,768 - DEBUG - Fetching 22JBPA04679D1DY FY=2025
+2025-11-21 13:40:03,770 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:04,821 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:04,828 - DEBUG - Fetching 22JBPA04827E1D6 FY=2025
+2025-11-21 13:40:04,832 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:04,930 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:04,935 - DEBUG - Fetching 22JBPA04887B1D0 FY=2025
+2025-11-21 13:40:04,938 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:05,181 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 733
+2025-11-21 13:40:05,186 - DEBUG - Fetching 22JBPA04961F1D1 FY=2025
+2025-11-21 13:40:05,189 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:05,321 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:05,326 - DEBUG - Fetching 22JBPA05315C1DH FY=2025
+2025-11-21 13:40:05,328 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:05,528 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:05,532 - DEBUG - Fetching 22JBPA06555D1D3 FY=2025
+2025-11-21 13:40:05,535 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:05,815 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:05,818 - DEBUG - Fetching 22JBPA06772D1D0 FY=2025
+2025-11-21 13:40:05,821 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:06,057 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:06,061 - DEBUG - Fetching 22JBPA06881A1D4 FY=2025
+2025-11-21 13:40:06,064 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:06,167 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:06,172 - DEBUG - Fetching 22JBPA07730C1DA FY=2025
+2025-11-21 13:40:06,175 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:06,431 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:06,435 - DEBUG - Fetching 22JBPA07865E1DU FY=2025
+2025-11-21 13:40:06,437 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:07,219 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:07,223 - DEBUG - Fetching 22JBPA11021D1DR FY=2025
+2025-11-21 13:40:07,226 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:07,861 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 733
+2025-11-21 13:40:07,865 - DEBUG - Fetching 22JBPA11037F1DF FY=2025
+2025-11-21 13:40:07,868 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:08,239 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:08,244 - DEBUG - Fetching 22JBPA11235A1DP FY=2025
+2025-11-21 13:40:08,247 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:08,331 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:08,336 - DEBUG - Fetching 22JBPA11404B1DS FY=2025
+2025-11-21 13:40:08,339 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:08,500 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:08,504 - DEBUG - Fetching 22JBPA11446B1DI FY=2025
+2025-11-21 13:40:08,507 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:08,860 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:08,864 - DEBUG - Fetching 22JBPA11904E1DH FY=2025
+2025-11-21 13:40:08,866 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:08,869 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 500
+2025-11-21 13:40:08,873 - DEBUG - Fetching 22JBPA12649A1DD FY=2025
+2025-11-21 13:40:08,876 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:08,882 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:08,887 - DEBUG - Fetching 22JBPB01044B1DN FY=2025
+2025-11-21 13:40:08,890 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:09,330 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:09,335 - DEBUG - Fetching 22JBPB01602G1DH FY=2025
+2025-11-21 13:40:09,337 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:10,015 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:10,021 - DEBUG - Fetching 22JBPB01660B1DH FY=2025
+2025-11-21 13:40:10,023 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:10,790 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:10,794 - DEBUG - Fetching 22JBPB01861G1D4 FY=2025
+2025-11-21 13:40:10,796 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:10,820 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:10,826 - DEBUG - Fetching 22JBPB01880E1D5 FY=2025
+2025-11-21 13:40:11,028 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:11,028 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:11,032 - DEBUG - Fetching 22JBPB01909F1D9 FY=2025
+2025-11-21 13:40:11,035 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:11,461 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:11,466 - DEBUG - Fetching 22JBPB01916F1DA FY=2025
+2025-11-21 13:40:11,468 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:11,884 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:11,888 - DEBUG - Fetching 22JBPB01919B1DF FY=2025
+2025-11-21 13:40:11,891 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:11,931 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:11,936 - DEBUG - Fetching 22JBPB01921D1DH FY=2025
+2025-11-21 13:40:12,130 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:12,240 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:12,244 - DEBUG - Fetching 22JBPB01925A1DJ FY=2025
+2025-11-21 13:40:12,247 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:12,250 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 853
+2025-11-21 13:40:12,254 - DEBUG - Fetching 22JBPB01926B1DG FY=2025
+2025-11-21 13:40:12,257 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:13,062 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:13,066 - DEBUG - Fetching 22JBPB01927C1DD FY=2025
+2025-11-21 13:40:13,069 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:13,339 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:13,343 - DEBUG - Fetching 22JBPB01928D1DA FY=2025
+2025-11-21 13:40:13,346 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:13,488 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:13,493 - DEBUG - Fetching 22JBPB01929E1D7 FY=2025
+2025-11-21 13:40:13,493 - INFO - Fetched 50/99
+2025-11-21 13:40:13,495 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:14,174 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 733
+2025-11-21 13:40:14,178 - DEBUG - Fetching 22JBPB01930F1DC FY=2025
+2025-11-21 13:40:14,186 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:14,710 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:14,714 - DEBUG - Fetching 22JBPB01943E1D9 FY=2025
+2025-11-21 13:40:14,716 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:14,769 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 615
+2025-11-21 13:40:14,773 - DEBUG - Fetching 22JBPB01945G1D3 FY=2025
+2025-11-21 13:40:14,810 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 166
+2025-11-21 13:40:14,814 - DEBUG - Fetching 22JBPB01960A1DG FY=2025
+2025-11-21 13:40:14,817 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:14,956 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:15,265 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:15,269 - DEBUG - Fetching 22JBPB02336F1DA FY=2025
+2025-11-21 13:40:15,286 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:15,313 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 615
+2025-11-21 13:40:15,317 - DEBUG - Fetching 22JBPB02336F2D9 FY=2025
+2025-11-21 13:40:15,319 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:15,355 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:15,358 - DEBUG - Fetching 22JBPB02337G1D7 FY=2025
+2025-11-21 13:40:15,361 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:15,364 - DEBUG - Fetching 22JBPB02338A1DI FY=2025
+2025-11-21 13:40:15,366 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:15,367 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:15,401 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:15,404 - DEBUG - Fetching 22JBPB02346B1DG FY=2025
+2025-11-21 13:40:15,495 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:16,503 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:16,506 - DEBUG - Fetching 22JBPB02346B2DF FY=2025
+2025-11-21 13:40:16,509 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:16,818 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:16,822 - DEBUG - Fetching 22JBPB02347C1DD FY=2025
+2025-11-21 13:40:16,824 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:16,914 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:16,918 - DEBUG - Fetching 22JBPB02348D1DA FY=2025
+2025-11-21 13:40:16,920 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:17,153 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:17,157 - DEBUG - Fetching 22JBPB02379G1DX FY=2025
+2025-11-21 13:40:17,227 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:17,367 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 615
+2025-11-21 13:40:17,371 - DEBUG - Fetching 22JBPB02379G2DW FY=2025
+2025-11-21 13:40:17,372 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:17,376 - DEBUG - Fetching 22JBPB02436A1DJ FY=2025
+2025-11-21 13:40:17,379 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:17,380 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:17,692 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:17,697 - DEBUG - Fetching 22JBPB02437B1DG FY=2025
+2025-11-21 13:40:17,701 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:18,149 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:18,154 - DEBUG - Fetching 22JBPB02439D1DA FY=2025
+2025-11-21 13:40:18,156 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:18,321 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:18,326 - DEBUG - Fetching 22JBPB02440E1DF FY=2025
+2025-11-21 13:40:18,400 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:18,402 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:18,407 - DEBUG - Fetching 22JBPB02441F1DC FY=2025
+2025-11-21 13:40:18,473 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:18,833 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:18,837 - DEBUG - Fetching 22JBPB02443A1DK FY=2025
+2025-11-21 13:40:18,839 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:19,892 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 733
+2025-11-21 13:40:19,896 - DEBUG - Fetching 22JBPB02466C1D9 FY=2025
+2025-11-21 13:40:19,898 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:19,914 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:19,919 - DEBUG - Fetching 22JBPB02622E1DF FY=2025
+2025-11-21 13:40:19,993 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:20,074 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:20,078 - DEBUG - Fetching 22JBPB02707F1DB FY=2025
+2025-11-21 13:40:20,081 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:20,997 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 615
+2025-11-21 13:40:21,001 - DEBUG - Fetching 22JBPB02880D1D5 FY=2025
+2025-11-21 13:40:21,004 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:21,024 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:21,028 - DEBUG - Fetching 22JBPB02987F1DT FY=2025
+2025-11-21 13:40:21,080 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 615
+2025-11-21 13:40:21,087 - DEBUG - Fetching 22JBPB03180C1DC FY=2025
+2025-11-21 13:40:21,090 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:21,188 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:21,862 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:21,867 - DEBUG - Fetching 22JBPB03217E1DE FY=2025
+2025-11-21 13:40:21,871 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:21,876 - DEBUG - Fetching 22JBPB03219G1D8 FY=2025
+2025-11-21 13:40:22,041 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:22,072 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:22,090 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:22,094 - DEBUG - Fetching 22JBPB03460C1DD FY=2025
+2025-11-21 13:40:22,096 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:22,463 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:22,467 - DEBUG - Fetching 22JBPB03461D1DA FY=2025
+2025-11-21 13:40:22,469 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:23,533 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 733
+2025-11-21 13:40:23,537 - DEBUG - Fetching 22JBPB03466B1D9 FY=2025
+2025-11-21 13:40:23,539 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:23,660 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:23,665 - DEBUG - Fetching 22JBPB03919G1D1 FY=2025
+2025-11-21 13:40:23,667 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:23,669 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:23,673 - DEBUG - Fetching 22JBPB03920A1DK FY=2025
+2025-11-21 13:40:23,676 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:23,884 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:23,909 - DEBUG - Fetching 22JBPB03925F1D5 FY=2025
+2025-11-21 13:40:23,920 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:24,102 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 853
+2025-11-21 13:40:24,106 - DEBUG - Fetching 22JBPB03926G1D2 FY=2025
+2025-11-21 13:40:24,108 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:24,387 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:24,391 - DEBUG - Fetching 22JBPB03946F1D0 FY=2025
+2025-11-21 13:40:24,393 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:24,550 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:24,553 - DEBUG - Fetching 22JBPB03947G1DX FY=2025
+2025-11-21 13:40:24,555 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:25,102 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:25,107 - DEBUG - Fetching 22JBPB04058F1D3 FY=2025
+2025-11-21 13:40:25,109 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:25,111 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:25,115 - DEBUG - Fetching 22JBPB04153C1DD FY=2025
+2025-11-21 13:40:25,189 - DEBUG - Starting new HTTPS connection (1): services.gst.gov.in:443
+2025-11-21 13:40:25,889 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:25,948 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:26,066 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:26,128 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:26,231 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:26,256 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:26,293 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:26,380 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:26,390 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 849
+2025-11-21 13:40:26,539 - DEBUG - https://services.gst.gov.in:443 "POST /services/api/search/taxpayerReturnDetails HTTP/1.1" 200 29
+2025-11-21 13:40:26,545 - INFO - Fetched 99/99
+2025-11-21 13:40:26,553 - INFO - Saved raw responses → output\pending_GSTR7_gstin_list_0_response.csv
+2025-11-21 13:40:26,649 - INFO - Building Excel from output\pending_GSTR7_gstin_list_0_response.csv
+2025-11-21 13:40:27,059 - INFO - Exported Excel → output\pending_GSTR7_gstin_list_0_GSTR7_processed.xlsx
+2025-11-21 13:40:27,061 - INFO - Saved processed Excel → output\pending_GSTR7_gstin_list_0_GSTR7_processed.xlsx
+2025-11-21 13:40:27,062 - INFO - === Part 3: Updating master sheet, Summary & Defaulters ===
+2025-11-21 13:40:27,371 - INFO - Wrote updated master → c:\Users\a-bhupensingh\IdeaProjects\python\Updated_Master_GSTIN_Status.xlsx
+2025-11-21 13:40:27,965 - INFO - Added Division & Circle summaries → c:\Users\a-bhupensingh\IdeaProjects\python\Updated_Master_GSTIN_Status.xlsx
+2025-11-21 14:46:53,765 - INFO - >>> Starting GSTIN filing status processing <<<
+2025-11-21 14:46:53,765 - INFO - >>> Starting sql fetching <<<
+2025-11-21 14:46:53,767 - INFO - === Fetching Taxpayer Data from SQL Server ===
+2025-11-21 15:00:15,809 - INFO - >>> Starting GSTIN filing status processing <<<
+2025-11-21 15:00:15,809 - INFO - >>> Starting sql fetching <<<
+2025-11-21 15:00:15,810 - INFO - === Fetching Taxpayer Data from SQL Server ===

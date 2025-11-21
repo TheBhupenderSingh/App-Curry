@@ -57,7 +57,6 @@ useEffect(() => {
       console.error("Error fetching FO users:", error);
     }
 
-    
   };
   fetchFos();
 }, []);
@@ -220,7 +219,7 @@ useEffect(() => {
     }
   >
     <SelectTrigger>
-      <SelectValue placeholder="Select FO user..." />
+      <SelectValue placeholder="Select user..." />
     </SelectTrigger>
     <SelectContent>
   {foUsers.map((fo) => (

@@ -49,6 +49,24 @@ interface Subdivision {
   const [subdivisions, setSubdivisions] = useState<Subdivision[]>([]);
   const [sectors, setSectors] = useState<string[]>([]);
 
+  const CIRCLE_COLOR_MAP = {
+  "Kolkata (North) Circle": "#4e79a7",
+  "Kolkata (South) Circle": "#f28e2b",
+  "Burrabazar Circle": "#e15759",
+  "Chowringhee Circle": "#76b7b2",
+  "Dharmatala Circle": "#59a14f",
+  "24-Parganas Circle": "#edc948",
+  "Behala Circle": "#b07aa1",
+  "Howrah Circle": "#ff9da7",
+  "Bally Circle": "#9c755f",
+  "Midnapore Circle": "#bab0ab",
+  "Asansol Circle": "#6b5b95",
+  "Durgapur Circle": "#88b04b",
+  "Berhampore Circle": "#ffa500",
+  "Siliguri Circle": "#008080",
+  "Raiganj Circle": "#d65076",
+  "Jalpaiguri Circle": "#45b8ac",
+};
 
 
   const filter = useMemo(
@@ -195,11 +213,11 @@ const [dealerRanking, setDealerRanking] = useState<any[]>([]);
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500">Target</p>
+          <p className="text-gray-500">Target(Cr.)</p>
           <h2 className="text-xl font-bold">{kpis.target}</h2>
         </div>
         <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500">Received</p>
+          <p className="text-gray-500">Received(Cr.)</p>
           <h2 className="text-xl font-bold">{kpis.received}</h2>
         </div>
         <div className="bg-white shadow rounded-xl p-4">
@@ -211,13 +229,10 @@ const [dealerRanking, setDealerRanking] = useState<any[]>([]);
           <h2 className="text-xl font-bold">{kpis.achieved}%</h2>
         </div>
         <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500">YOY Growth</p>
-          <h2 className="text-xl font-bold">{kpis.yoyGrowth}%</h2>
-        </div>
-        <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500">SGST + IGST</p>
-          <h2 className="text-xl font-bold">{kpis.sgstIgst}</h2>
-        </div>
+  <p className="text-gray-500">YOY Growth</p>
+  <h2 className="text-xl font-bold">{kpis.yoyGrowth?.toFixed(2)}%</h2>
+</div>
+        
       </div>
 
       {/* Charts Grid */}
@@ -244,19 +259,22 @@ const [dealerRanking, setDealerRanking] = useState<any[]>([]);
 
         {/* Contribution Pie */}
         <div className="bg-white shadow rounded-xl p-4">
-          <h3 className="font-semibold mb-2">% Contribution - SGST + IGST Paid</h3>
-          <ResponsiveContainer width="100%" height={290}>
-            <PieChart>
-              <Pie data={contributionDivision} dataKey="value" nameKey="name" outerRadius={90}>
-                {contributionDivision.map((_, i) => (
-                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
+  <h3 className="font-semibold mb-2">% Contribution - SGST + IGST Paid</h3>
+  <ResponsiveContainer width="100%" height={290}>
+    <PieChart>
+      <Pie data={contributionDivision} dataKey="value" nameKey="name" outerRadius={90}>
+        {contributionDivision.map((entry, index) => (
+          <Cell 
+            key={`cell-${index}`} 
+            fill={CIRCLE_COLOR_MAP[entry.name] || "#cccccc"} // Fallback if not found
+          />
+        ))}
+      </Pie>
+      <Tooltip />
+      <Legend />
+    </PieChart>
+  </ResponsiveContainer>
+</div>
 
         {/* YOY Change */}
         <div className="bg-white shadow rounded-xl p-4 col-span-2">
@@ -275,18 +293,7 @@ const [dealerRanking, setDealerRanking] = useState<any[]>([]);
         </div>
 
         {/* GST Paid by Year & Month */}
-        <div className="bg-white shadow rounded-xl p-4 col-span-2">
-          <h3 className="font-semibold mb-2">GST Paid by Year and Month</h3>
-          <ResponsiveContainer width="100%" height={250}>
-            <LineChart data={gstPaidOverMonths}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
-              <Line type="monotone" dataKey="paid" stroke="#f87171" />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
+        
       </div>
 
       {/* Top Contributors Table */}
@@ -299,7 +306,7 @@ const [dealerRanking, setDealerRanking] = useState<any[]>([]);
               <th className="border border-gray-200 px-2 py-1">Total Tax Liability</th>
               <th className="border border-gray-200 px-2 py-1">SGST Paid</th>
               <th className="border border-gray-200 px-2 py-1">Revenue</th>
-              <th className="border border-gray-200 px-2 py-1">MoM Growth</th>
+              <th className="border border-gray-200 px-2 py-1">YoY Growth</th>
             </tr>
           </thead>
           <tbody>

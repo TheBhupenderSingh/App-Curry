@@ -400,14 +400,14 @@ const CaseScrutiny: React.FC = () => {
         <div className="space-y-2 max-h-64 overflow-y-auto border p-2 rounded">
           {filteredUsers.length === 0 && <p>No users found</p>}
           {filteredUsers.map((u) => (
-            <div key={u.id} className="flex items-center space-x-2">
+            <div key={u.person.id} className="flex items-center space-x-2">
               <Checkbox
-                checked={selectedUsers.includes(u.id)}
-                onCheckedChange={() => toggleUserSelection(u.id)}
+                checked={selectedUsers.includes(u.person.id)}
+                onCheckedChange={() => toggleUserSelection(u.person.id)}
               />
               <span>
                 {u.person.username} ({u.designation.name}) - {u.subDivision.name}/
-                {u.subDivision.division.name}
+                {u.subDivision.division.name} 
               </span>
             </div>
           ))}

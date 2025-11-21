@@ -45,6 +45,25 @@ const GstRevenueOverview: React.FC = () => {
     yoyGrowth: 0,
     });
 
+    const CIRCLE_COLOR_MAP = {
+  "Kolkata (North) Circle": "#4e79a7",
+  "Kolkata (South) Circle": "#f28e2b",
+  "Burrabazar Circle": "#e15759",
+  "Chowringhee Circle": "#76b7b2",
+  "Dharmatala Circle": "#59a14f",
+  "24-Parganas Circle": "#edc948",
+  "Behala Circle": "#b07aa1",
+  "Howrah Circle": "#ff9da7",
+  "Bally Circle": "#9c755f",
+  "Midnapore Circle": "#bab0ab",
+  "Asansol Circle": "#6b5b95",
+  "Durgapur Circle": "#88b04b",
+  "Berhampore Circle": "#ffa500",
+  "Siliguri Circle": "#008080",
+  "Raiganj Circle": "#d65076",
+  "Jalpaiguri Circle": "#45b8ac",
+};
+
    const [allTableData, setAllTableData] = useState<any[]>([]);
    const [yoyGrowth, setYoyGrowth] = useState<any[]>([]);
    const [momGrowth, setMomGrowth] = useState<any[]>([]);
@@ -66,6 +85,20 @@ const GstRevenueOverview: React.FC = () => {
     }),
     [sector, division, circle]
   );
+
+  const yoyGrowthYearly = Object.values(
+  yoyGrowth.reduce((acc, item) => {
+    const year = item.month.split(" ")[1];
+
+    if (!acc[year]) {
+      acc[year] = { year, growth: 0 };
+    }
+
+    acc[year].growth += item.growth; // sum
+    return acc;
+  }, {})
+);
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -183,25 +216,25 @@ const GstRevenueOverview: React.FC = () => {
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500">Target</p>
+          <p className="text-gray-500">Target (Cr.)</p>
           <h2 className="text-xl font-bold">{kpis.target}</h2>
         </div>
         <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500">Received</p>
+          <p className="text-gray-500">Received (Cr.)</p>
           <h2 className="text-xl font-bold">{kpis.received}</h2>
         </div>
         <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500">Difference</p>
+          <p className="text-gray-500">Difference </p>
           <h2 className="text-xl font-bold">{kpis.difference}</h2>
         </div>
         <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500">Achieved</p>
+          <p className="text-gray-500">Achieved </p>
           <h2 className="text-xl font-bold">{kpis.achieved}%</h2>
         </div>
         <div className="bg-white shadow rounded-xl p-4">
-          <p className="text-gray-500">YOY Growth</p>
-          <h2 className="text-xl font-bold">{kpis.yoyGrowth}%</h2>
-        </div>
+  <p className="text-gray-500">YOY Growth</p>
+  <h2 className="text-xl font-bold">{kpis.yoyGrowth.toFixed(2)}%</h2>
+</div>
       </div>
 
       {/* Charts Grid */}
@@ -212,10 +245,13 @@ const GstRevenueOverview: React.FC = () => {
           <ResponsiveContainer width="100%" height={290}>
             <PieChart>
               <Pie data={filteredPieData} dataKey="value" nameKey="name" outerRadius={90}>
-                {filteredPieData.map((_, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
+  {filteredPieData.map((entry, index) => (
+    <Cell
+      key={`cell-${index}`}
+      fill={CIRCLE_COLOR_MAP[entry.name] || "#cccccc"} // fallback if any key missing
+    />
+  ))}
+</Pie>
               <Tooltip />
               <Legend />
             </PieChart>
@@ -242,7 +278,14 @@ const GstRevenueOverview: React.FC = () => {
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={filteredTargetVsReceived}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="division" />
+              <XAxis
+  dataKey="division"
+  angle={-35}
+  textAnchor="end"
+  tick={{ fontSize: 10 }}
+  interval={0}        // show all labels
+  height={60}         // extra space for rotated text
+/>
               <YAxis />
               <Tooltip />
               <Legend />
@@ -256,13 +299,13 @@ const GstRevenueOverview: React.FC = () => {
         <div className="bg-white shadow rounded-xl p-4">
           <h3 className="font-semibold mb-2">YoY Growth of Received</h3>
           <ResponsiveContainer width="100%" height={250}>
-            <LineChart data={yoyGrowth}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
-              <Line type="monotone" dataKey="growth" stroke="#10b981" />
-            </LineChart>
+            <LineChart data={yoyGrowthYearly}>
+  <CartesianGrid strokeDasharray="3 3" />
+  <XAxis dataKey="year" />
+  <YAxis />
+  <Tooltip />
+  <Line type="monotone" dataKey="growth" stroke="#10b981" />
+</LineChart>
           </ResponsiveContainer>
         </div>
       </div>

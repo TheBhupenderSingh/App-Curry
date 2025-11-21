@@ -116,38 +116,139 @@ const RiskDashboard: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* ROC Curve */}
         <Card>
-          <CardContent className="p-4">
-            <h3 className="text-lg font-semibold mb-2">ROC Curve</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={rocData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="fpr" label={{ value: "FPR", position: "insideBottomRight", offset: -5 }} />
-                <YAxis label={{ value: "TPR", angle: -90, position: "insideLeft" }} />
-                <Tooltip />
-                <Line type="monotone" dataKey="tpr" stroke="#2563eb" strokeWidth={2} dot={false} />
-              </LineChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
+  <CardContent className="p-4">
+    <h3 className="text-lg font-semibold mb-2">
+      ROC Curve (Receiver Operating Characteristic)
+    </h3>
+
+    <ResponsiveContainer width="100%" height={300}>
+      <LineChart data={rocData}>
+        <CartesianGrid strokeDasharray="3 3" />
+
+        {/* X-Axis: FPR */}
+        <XAxis
+          dataKey="fpr"
+          label={{
+            value: "FPR (False Positive Rate)",
+            position: "insideBottomLeft",
+            offset: -5,
+          }}
+        />
+
+        {/* Y-Axis: TPR */}
+        <YAxis
+          label={{
+            value: "TPR (True Positive Rate)",
+            angle: -90,
+            position: "insideBottomLeft",
+             offset: 9,
+          }}
+        />
+
+        <Tooltip />
+
+        {/* Line: TPR */}
+        <Line
+          type="monotone"
+          dataKey="tpr"
+          stroke="#2563eb"
+          strokeWidth={2}
+          dot={false}
+          name="TPR (True Positive Rate)"
+        />
+      </LineChart>
+    </ResponsiveContainer>
+  </CardContent>
+</Card>
+
 
         {/* Confusion Matrix */}
-        <Card>
-          <CardContent className="p-4 flex flex-col items-center justify-center h-full">
-            <h3 className="text-lg font-semibold mb-4">Confusion Matrix</h3>
-            <div className="grid grid-cols-2 w-40 text-center mx-auto">
-              {data.confusion_matrix.flat().map((val, idx) => (
-                <div
-                  key={idx}
-                  className={`p-4 border font-medium ${
-                    idx === 0 || idx === 3 ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
-                  }`}
-                >
-                  {val}
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+       <Card className="shadow-lg rounded-2xl">
+  <CardContent className="p-8">
+
+    <h3 className="text-xl font-bold mb-8 text-center tracking-wide text-gray-800">
+      Confusion Matrix
+    </h3>
+
+    <div className="flex flex-col items-center">
+
+      {/* Top Label: Predicted (shifted right) */}
+      
+
+      {/* ⛔ Removed the horizontal line below Predicted */}
+
+      <div className="grid grid-cols-3 gap-3">
+
+        {/* Empty top-left cell */}
+        <div></div>
+
+        {/* Predicted Positive */}
+        <div className="text-center font-semibold text-gray-700 text-sm">
+          Predicted Fraud
+        </div>
+
+        {/* Predicted Negative */}
+        <div className="text-center font-semibold text-gray-700 text-sm">
+          Predicted Genuine
+        </div>
+
+        {/* Actual Positive Label */}
+        <div className="flex items-center justify-center text-center font-semibold text-gray-700 text-sm leading-tight">
+          Actual<br />Fraud
+        </div>
+
+        {/* True Positive */}
+        <div className="p-5 rounded-xl bg-green-100 border border-green-300 text-center shadow-sm">
+          <div className="font-semibold text-green-800 text-sm tracking-wide">
+           
+          </div>
+          <div className="text-xl font-bold text-green-900 mt-1">
+            {data.confusion_matrix[0][0]}
+          </div>
+        </div>
+
+        {/* False Negative */}
+        <div className="p-5 rounded-xl bg-red-100 border border-red-300 text-center shadow-sm">
+          <div className="font-semibold text-red-800 text-sm tracking-wide">
+           
+          </div>
+          <div className="text-xl font-bold text-red-900 mt-1">
+            {data.confusion_matrix[0][1]}
+          </div>
+        </div>
+
+        {/* Actual Negative Label */}
+        <div className="flex items-center justify-center text-center font-semibold text-gray-700 text-sm leading-tight">
+          Actual<br />Genuine
+        </div>
+
+        {/* False Positive */}
+        <div className="p-5 rounded-xl bg-red-100 border border-red-300 text-center shadow-sm">
+          <div className="font-semibold text-red-800 text-sm tracking-wide">
+           
+          </div>
+          <div className="text-xl font-bold text-red-900 mt-1">
+            {data.confusion_matrix[1][0]}
+          </div>
+        </div>
+
+        {/* True Negative */}
+        <div className="p-5 rounded-xl bg-green-100 border border-green-300 text-center shadow-sm">
+          <div className="font-semibold text-green-800 text-sm tracking-wide">
+           
+          </div>
+          <div className="text-xl font-bold text-green-900 mt-1">
+            {data.confusion_matrix[1][1]}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
+
+
 
         {/* Feature Weights */}
         <Card>

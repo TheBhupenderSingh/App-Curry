@@ -58,19 +58,109 @@ const formatCrore = (n: number) =>
 // ---------- MOCK DATA (replace with real) ----------
 const DIVISIONS: Option[] = [
   { label: "All", value: "all" },
-  { label: "Raipur 1", value: "raipur1" },
-  { label: "Raipur 2", value: "raipur2" },
-  { label: "Durg", value: "durg" },
-  { label: "Bilaspur 1", value: "bilaspur1" },
-  { label: "Bilaspur 2", value: "bilaspur2" },
-  { label: "Nava Raipur Div.", value: "navaraipur" },
-  { label: "Ambikapur", value: "ambikapur" },
+  { label: "Kolkata (North) Circle", value: "Kolkata (North) Circle" },
+  { label: "Kolkata (South) Circle", value: "Kolkata (South) Circle" },
+  { label: "Burrabazar Circle", value: "Burrabazar Circle" },
+  { label: "Chowringhee Circle", value: "Chowringhee Circle" },
+  { label: "Dharmatala Circle", value: "Dharmatala Circle" },
+  { label: "24-Parganas Circle", value: "24-Parganas Circle" },
+  { label: "Behala Circle", value: "Behala Circle" },
+  { label: "Howrah Circle", value: "Howrah Circle" },
+  { label: "Bally Circle", value: "Bally Circle" },
+  { label: "Midnapore Circle", value: "Midnapore Circle" },
+  { label: "Asansol Circle", value: "Asansol Circle" },
+  { label: "Durgapur Circle", value: "Durgapur Circle" },
+  { label: "Berhampore Circle", value: "Berhampore Circle" },
+  { label: "Siliguri Circle", value: "Siliguri Circle" },
+  { label: "Raiganj Circle", value: "Raiganj Circle" },
+  { label: "Jalpaiguri Circle", value: "Jalpaiguri Circle" },
 ];
 
 const CIRCLES: Option[] = [
   { label: "All", value: "all" },
-  { label: "Raipur-1", value: "raipur-1" },
-  { label: "Raipur-2", value: "raipur-2" },
+  // Kolkata North
+  { label: "Shyambazar", value: "Shyambazar" },
+  { label: "Maniktola", value: "Maniktola" },
+  { label: "Jorasanko", value: "Jorasanko" },
+  { label: "Jorabagan", value: "Jorabagan" },
+  { label: "Burtola", value: "Burtola" },
+  { label: "Beadon Street", value: "Beadon Street" },
+  { label: "Postabazar", value: "Postabazar" },
+  // Kolkata South
+  { label: "Bhowanipore", value: "Bhowanipore" },
+  { label: "Ballygunge", value: "Ballygunge" },
+  { label: "Park Street", value: "Park Street" },
+  { label: "Taltala", value: "Taltala" },
+  { label: "Beliaghata", value: "Beliaghata" },
+  { label: "New Market", value: "New Market" },
+  // Burrabazar
+  { label: "Chinabazar", value: "Chinabazar" },
+  { label: "Strand Road", value: "Strand Road" },
+  { label: "Netaji Subhas Road", value: "Netaji Subhas Road" },
+  { label: "Monohar Katra", value: "Monohar Katra" },
+  { label: "Raja Katra", value: "Raja Katra" },
+  // Chowringhee
+  { label: "Radhabazar", value: "Radhabazar" },
+  { label: "Lalbazar", value: "Lalbazar" },
+  { label: "Lyons Range", value: "Lyons Range" },
+  { label: "Fairlie Place", value: "Fairlie Place" },
+  { label: "Naren Dutta Sarani", value: "Naren Dutta Sarani" },
+  { label: "Esplanade", value: "Esplanade" },
+  // Dharmatala
+  { label: "Sealdah", value: "Sealdah" },
+  { label: "Bowbazar", value: "Bowbazar" },
+  { label: "Chandnichowk", value: "Chandnichowk" },
+  { label: "Princep Street", value: "Princep Street" },
+  { label: "Amratola", value: "Amratola" },
+  { label: "Armenian Street", value: "Armenian Street" },
+  { label: "Colootola", value: "Colootola" },
+  { label: "College Street", value: "College Street" },
+  { label: "Ezra Street", value: "Ezra Street" },
+  // 24-Parganas
+  { label: "Barasat", value: "Barasat" },
+  { label: "Barrackpore", value: "Barrackpore" },
+  { label: "Salt Lake", value: "Salt Lake" },
+  { label: "Cossipore", value: "Cossipore" },
+  { label: "Belgachhia", value: "Belgachhia" },
+  { label: "Ultadanga", value: "Ultadanga" },
+  // Behala
+  { label: "Behala", value: "Behala" },
+  { label: "Budge Budge", value: "Budge Budge" },
+  { label: "Diamond Harbour", value: "Diamond Harbour" },
+  { label: "Baruipur", value: "Baruipur" },
+  { label: "Alipore", value: "Alipore" },
+  // Howrah
+  { label: "Howrah", value: "Howrah" },
+  { label: "Kadamtala", value: "Kadamtala" },
+  { label: "Shibpur", value: "Shibpur" },
+  // Bally
+  { label: "Bally", value: "Bally" },
+  { label: "Salkia", value: "Salkia" },
+  { label: "Serampore", value: "Serampore" },
+  // Midnapore
+  { label: "Midnapore", value: "Midnapore" },
+  { label: "Tamluk", value: "Tamluk" },
+  // Asansol
+  { label: "Asansol", value: "Asansol" },
+  { label: "Purulia", value: "Purulia" },
+  // Durgapur
+  { label: "Durgapur", value: "Durgapur" },
+  { label: "Burdwan", value: "Burdwan" },
+  { label: "Bankura", value: "Bankura" },
+  { label: "Suri", value: "Suri" },
+  // Berhampore
+  { label: "Berhampore", value: "Berhampore" },
+  { label: "Krishnagar", value: "Krishnagar" },
+  // Siliguri
+  { label: "Siliguri", value: "Siliguri" },
+  { label: "Darjeeling", value: "Darjeeling" },
+  // Raiganj
+  { label: "Raiganj", value: "Raiganj" },
+  { label: "Maldah", value: "Maldah" },
+  { label: "Balurghat", value: "Balurghat" },
+  // Jalpaiguri
+  { label: "Jalpaiguri", value: "Jalpaiguri" },
+  { label: "Cooch Behar", value: "Cooch Behar" },
 ];
 
 const TRADE_OF_NAME: Option[] = [
@@ -95,27 +185,15 @@ const DATE_OF_ORDER: Option[] = [
 ];
 
 const MOCK_OFFICERS: OfficerRow[] = [
-  { officer: "Shri Nitin Garg", totalEnforcement: 10, division: "raipur1" },
-  { officer: "Shri Durgesh Pandey", totalEnforcement: 4, division: "raipur1" },
-  { officer: "Shri Sandeep Yadu", totalEnforcement: 4, division: "durg" },
-  { officer: "Dr. Shushma Bada", totalEnforcement: 3, division: "bilaspur1" },
-  {
-    officer: "Shri Navdeepak Sahu",
-    totalEnforcement: 3,
-    division: "bilaspur2",
-  },
-  { officer: "Dr. Kamal Naik", totalEnforcement: 2, division: "raipur2" },
-  {
-    officer: "Mrs. Pratistha Thakur",
-    totalEnforcement: 2,
-    division: "raipur2",
-  },
-  { officer: "Shri Alok Jaiswal", totalEnforcement: 2, division: "navaraipur" },
-  {
-    officer: "Shri Nitin Garg, Dc, Raipur Div.-1",
-    totalEnforcement: 2,
-    division: "raipur1",
-  },
+  { officer: "Shri Nitin Garg", totalEnforcement: 10, division: "Kolkata (North) Circle" },
+  { officer: "Shri Durgesh Pandey", totalEnforcement: 4, division: "Kolkata (North) Circle" },
+  { officer: "Shri Sandeep Yadu", totalEnforcement: 4, division: "Kolkata (South) Circle" },
+  { officer: "Dr. Shushma Bada", totalEnforcement: 3, division: "Burrabazar Circle" },
+  { officer: "Shri Navdeepak Sahu", totalEnforcement: 3, division: "Chowringhee Circle" },
+  { officer: "Dr. Kamal Naik", totalEnforcement: 2, division: "Dharmatala Circle" },
+  { officer: "Mrs. Pratistha Thakur", totalEnforcement: 2, division: "Dharmatala Circle" },
+  { officer: "Shri Alok Jaiswal", totalEnforcement: 2, division: "24-Parganas Circle" },
+  { officer: "Shri Nitin Garg, Dc, Raipur Div.-1", totalEnforcement: 2, division: "Kolkata (North) Circle" },
 ];
 
 const MOCK_DEPOSIT_TREND: DepositPoint[] = [
@@ -142,14 +220,14 @@ const MOCK_STATUS: StatusRow[] = [
 ];
 
 const MOCK_DIVISIONS: DivisionRow[] = [
-  { division: "Raipur 1", amount: 32.18, enforcements: 34 },
-  { division: "Raipur 2", amount: 21.28, enforcements: 22 },
-  { division: "Durg", amount: 10.03, enforcements: 12 },
-  { division: "Bilaspur1", amount: 9.51, enforcements: 9 },
-  { division: "Bilaspur2", amount: 5.96, enforcements: 7 },
-  { division: "Nava Raipur Div.", amount: 1.54, enforcements: 4 },
+  { division: "Kolkata (North) Circle", amount: 32.18, enforcements: 34 },
+  { division: "Kolkata (South) Circle", amount: 21.28, enforcements: 22 },
+  { division: "Burrabazar Circle", amount: 10.03, enforcements: 12 },
+  { division: "Chowringhee Circle", amount: 9.51, enforcements: 9 },
+  { division: "Dharmatala Circle", amount: 5.96, enforcements: 7 },
+  { division: "24-Parganas Circle", amount: 1.54, enforcements: 4 },
   { division: "(Blank)", amount: 0.2, enforcements: 2 },
-  { division: "Ambikapur", amount: 0.08, enforcements: 1 },
+  { division: "Behala Circle", amount: 0.08, enforcements: 1 },
 ];
 
 // ---------- Component ----------.

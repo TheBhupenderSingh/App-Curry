@@ -46,6 +46,27 @@ export default function ActiveTaxpayerOverview() {
 const [kpiData, setKpiData] = useState<any[]>([]);
 
 
+const CIRCLE_COLOR_MAP = {
+  "Kolkata (North) Circle": "#4e79a7",
+  "Kolkata (South) Circle": "#f28e2b",
+  "Burrabazar Circle": "#e15759",
+  "Chowringhee Circle": "#76b7b2",
+  "Dharmatala Circle": "#59a14f",
+  "24-Parganas Circle": "#edc948",
+  "Behala Circle": "#b07aa1",
+  "Howrah Circle": "#ff9da7",
+  "Bally Circle": "#9c755f",
+  "Midnapore Circle": "#bab0ab",
+  "Asansol Circle": "#6b5b95",
+  "Durgapur Circle": "#88b04b",
+  "Berhampore Circle": "#ffa500",
+  "Siliguri Circle": "#008080",
+  "Raiganj Circle": "#d65076",
+  "Jalpaiguri Circle": "#45b8ac",
+};
+
+
+
 // Dummy Data
 const [taxpayerSummary, setTaxpayerSummary] = useState<any[]>([]);
 
@@ -200,20 +221,25 @@ const [lineData, setLineData] = useState<any[]>([]);
 
         {/* Pie Charts */}
         <div className="bg-white shadow rounded-xl p-4 col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h3 className="font-semibold mb-2">Taxpayer by Division</h3>
-            <ResponsiveContainer width="100%" height={290}>
-              <PieChart>
-                <Pie data={pieDivision} dataKey="value" nameKey="name" outerRadius={85}>
-                  {pieDivision.map((_, i) => (
-                    <Cell key={i} fill={COLORS[i % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-                <Legend layout="horizontal" verticalAlign="bottom" align="center" />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
+          <div className="bg-white shadow rounded-xl p-4 col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div>
+    <h3 className="font-semibold mb-2">Taxpayer by Division</h3>
+    <ResponsiveContainer width="100%" height={290}>
+      <PieChart>
+        <Pie data={pieDivision} dataKey="value" nameKey="name" outerRadius={85}>
+          {pieDivision.map((entry, i) => (
+            <Cell 
+              key={i} 
+              fill={CIRCLE_COLOR_MAP[entry.name] || "#cccccc"} // fallback
+            />
+          ))}
+        </Pie>
+        <Tooltip />
+        <Legend layout="horizontal" verticalAlign="bottom" align="center" />
+      </PieChart>
+    </ResponsiveContainer>
+  </div>
+</div>
 
           <div>
             <h3 className="font-semibold mb-2">Taxpayer by Business Constitution</h3>

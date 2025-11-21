@@ -396,7 +396,7 @@ const handleTableFilter = () => {
                       "HSN Code",
                       "Address",
                       "# Additional Places",
-                      "Lowest Juris",
+                     
                       "Cancel Effect Dt",
                       "Type Cancellation",
                       "Reason Cancel",
@@ -433,7 +433,7 @@ const handleTableFilter = () => {
                         {item.addressOfPrincipalPlaceOfBusiness}
                       </td>
                       <td className="border px-2 py-1">{item.noOfAdditionalPlaceOfBusiness}</td>
-                      <td className="border px-2 py-1">{item.lowestJuris}</td>
+                      
                       <td className="border px-2 py-1">{item.cancelEffectDt}</td>
                       <td className="border px-2 py-1">{item.typeCancellation}</td>
                       <td className="border px-2 py-1">{item.reasonCancel}</td>

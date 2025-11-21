@@ -70,26 +70,12 @@ useEffect(() => {
 }, []);
 
   const adminNavItems = [
-    { path: "/hoHomepage", label: "Home Page", icon: BarChart3 },
+   
     { path: "/admin-dashboard", label: "Dashboard", icon: BarChart3 },
     { path: "/user-management", label: "User Management", icon: Users },
     { path: "/system-settings", label: "System Settings", icon: Settings },
     { path: "/audit-logs", label: "Audit Logs", icon: Shield },
-    {
-    label: "Case Management",
-    icon: FolderKanban,
-    children: [
-      { path: "/case/scrutiny", label: "Scrutiny" },
-      { path: "/case/audit", label: "Audit" },
-      { path: "/case/usecases", label: "Usecases" },
-      { path: "/case/dealer-monitoring", label: "Dealer Monitoring" },
-    ],
-  },
-  { path: "/Enforcement", label: "Enforcement", icon: Settings },
-  { path: "/NGTP", label: "NGTP", icon: BarChart3 },
- 
-  { path: "/FraudAnalysis", label: "Fraud Detection Analytics", icon: BarChart3 },
-  { path: "/GetTaxpayerDetails", label: "Get Taxpayer Details", icon: Settings },
+    
     
   ];
 
@@ -98,14 +84,14 @@ useEffect(() => {
     { path: "/ho-dashboard", label: "Task Management", icon: BarChart3 },
     { path: "/assign-task", label: "Assign Task", icon: Plus },
    
-    { path: "/settings", label: "Reports", icon: Settings },
+    
     {
     label: "Case Management",
     icon: FolderKanban,
     children: [
       { path: "/case/scrutiny", label: "Scrutiny" },
       { path: "/case/audit", label: "Audit" },
-      { path: "/case/usecases", label: "Usecases" },
+      
       { path: "/case/dealer-monitoring", label: "Dealer Monitoring" },
     ],
   },
@@ -121,14 +107,14 @@ useEffect(() => {
     { path: "/hoHomepage", label: "Home Page", icon: BarChart3 },
     { path: "/fo-dashboard", label: "My Tasks", icon: CheckSquare },
     { path: "/notifications", label: "Notifications", icon: Bell },
-    { path: "/settings", label: "Reports", icon: Settings },
+    
     {
     label: "Case Management",
     icon: FolderKanban,
     children: [
       { path: "/fo/case-management", label: "Scrutiny" },
       { path: "/fo/case/audit", label: "Audit" },
-      { path: "/case/usecases", label: "Usecases" },
+    
       { path: "/case/dealer-monitoring", label: "Dealer Monitoring" },
     ],
   },

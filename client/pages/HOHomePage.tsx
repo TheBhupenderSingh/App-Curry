@@ -21,12 +21,10 @@ const userString = localStorage.getItem("currentUser");
     { name: "Revenue Tracking ", path: "/GstRevenueOverview" },
      { name: "Sectoral Analysis", path: "/SectoralDashboard" },
     { name: "Fraud Detection Analytics", path: "/FraudAnalysis" },
-    { name: "Taxpayer Overview", path: "/ActiveTaxpayerOverview" },
-      { name: "Get Taxpayer Details", path: "/GetTaxpayerDetails" },
-     { name: "Non Filers", path: "/nonfilers" },
-     
-    
-    
+    { name: "Taxpayer Overview", path: "http://localhost:7070/taxpayeroverview" },
+    { name: "Get Taxpayer Details", path: "/GetTaxpayerDetails" },
+    { name: "Non Filers", path: "/nonfilers" },
+    { name: "TV Dashboard", path: "/TvDashboard" },
 
   ];
 
@@ -46,7 +44,7 @@ const userString = localStorage.getItem("currentUser");
 
       {/* Hero Section */}
       <section className="bg-cyan-50 py-12 text-center">
-        <h2 className="text-3xl font-bold text-gray-800">GST ANALYTICAL TOOL</h2>
+        <h2 className="text-3xl font-bold text-gray-800">PRAGATI</h2>
         
       </section>
 

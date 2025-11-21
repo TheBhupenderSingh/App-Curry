@@ -57,6 +57,22 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { BASE_URL } from "@/config";
+import axios from "axios";
+import { toast } from "sonner";
+
+interface Division {
+  id: number;
+  name: string;
+}
+interface Subdivision {
+  id: number;
+  name: string;
+  division: Division;
+}
+interface Designation {
+  id: number;
+  name: string;
+}
 
 interface User {
   id: string;
@@ -207,6 +223,12 @@ export function UserManagement() {
   const [users, setUsers] = useState<User[]>([]);
   const [assignments, setAssignments] = useState<any[]>([]);
 
+  const [divisions, setDivisions] = useState<Division[]>([]);
+  const [subdivisions, setSubdivisions] = useState<Subdivision[]>([]);
+  const [designations, setDesignations] = useState<Designation[]>([]);
+
+  
+
 const uniqueDesignations = Array.from(
   new Map(assignments.map(a => [a.designation.id, a.designation])).values()
 );
@@ -218,13 +240,19 @@ const uniqueSubdivisions = Array.from(
 const uniqueDivisions = Array.from(
   new Map(assignments.map(a => [a.subDivision.division.id, a.subDivision.division])).values()
 );
+
 useEffect(() => {
   fetch(BASE_URL + "/admin/assignments")
     .then((res) => res.json())
     .then((data) => setAssignments(data));
+
+    fetch(BASE_URL + "/admin/divisions").then(res => res.json()).then(setDivisions);
+    fetch(BASE_URL + "/admin/subdivisions").then(res => res.json()).then(setSubdivisions);
+    fetch(BASE_URL + "/admin/designations").then(res => res.json()).then(setDesignations);
 }, []);
 
 useEffect(() => {
+
   fetch(BASE_URL + "/admin/assignments")
     .then((res) => res.json())
     
@@ -259,7 +287,7 @@ useEffect(() => {
 
 
   const [formData, setFormData] = useState({
-    firstName: "",
+  firstName: "",
   lastName: "",
   email: "",
   phone: "",
@@ -271,6 +299,7 @@ useEffect(() => {
   status: "Active",
   password: "",
   confirmPassword: "",
+  reportsToId: "", // 👈 new field
   permissions: [] as string[],
   });
 
@@ -281,6 +310,10 @@ useEffect(() => {
       permissions: roleTemplates[role as keyof typeof roleTemplates] || [],
     }));
   };
+
+  const [loading, setLoading] = useState(false);
+
+  
 
   const handlePermissionChange = (permissionId: string, checked: boolean) => {
     setFormData((prev) => ({
@@ -305,16 +338,73 @@ useEffect(() => {
       status: "Active",
       password: "",
       confirmPassword: "",
+      reportsToId: "", // 👈 new field
       permissions: [] as string[],
     });
   };
 
-  const handleCreateUser = () => {
-    console.log("Creating user:", formData);
-    // API call to create user
-    setShowCreateDialog(false);
-    resetForm();
+
+  const handleDelete = async (id: number) => {
+    try {
+      setLoading(true);
+      // 👇 Use the id passed in
+      await axios.delete(`http://localhost:9090/admin/deleteUser/${id}`);
+      alert("✅ User Deleted successfully! please reload the page");
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to delete user");
+    } finally {
+      setLoading(false);
+    }
   };
+
+
+  const handleCreateUser = async () => {
+  // Simple validations
+  if (!formData.firstName || !formData.email || !formData.password || !formData.role || !formData.designationId ) {
+    alert("Please fill all mandatory fields.");
+    return;
+  }
+  if (formData.password !== formData.confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
+
+
+  const payload = {
+    username: `${formData.firstName.trim()} ${formData.lastName.trim()}`, // Combine first and last name to form the username
+    email: formData.email.trim(),
+    role: formData.role,
+    password: formData.password ,
+    designationId:Number(formData.designationId),
+    divisionId:  Number(formData.divisionId) ,
+    subDivisionId:  Number(formData.subDivisionId) ,
+    reportTo :Number(formData.reportsToId),
+
+  };
+
+  try {
+    const res = await fetch(`${BASE_URL}/admin/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(err || "Failed to create user");
+    }
+
+    alert("✅ User created successfully!");
+    setShowCreateDialog(false);
+    
+  } catch (err) {
+    console.error("Error creating user:", err);
+    alert("❌ Error creating user: " + err.message);
+  }
+};
 
   const handleUpdateUser = () => {
     console.log("Updating user:", formData);
@@ -512,7 +602,29 @@ useEffect(() => {
                           <div>
                             <div className="font-medium">Head Office</div>
                             <div className="text-xs text-muted-foreground">
-                              Task management and oversight
+                              Full access from office.
+                            </div>
+                          </div>
+                        </div>
+                      </SelectItem>
+                      <SelectItem value="HO-1">
+                        <div className="flex items-center space-x-2">
+                          <Building className="h-4 w-4" />
+                          <div>
+                            <div className="font-medium">Head Office-1</div>
+                            <div className="text-xs text-muted-foreground">
+                              Task management.
+                            </div>
+                          </div>
+                        </div>
+                      </SelectItem>
+                       <SelectItem value="HO-2">
+                        <div className="flex items-center space-x-2">
+                          <Building className="h-4 w-4" />
+                          <div>
+                            <div className="font-medium">Head Office-2</div>
+                            <div className="text-xs text-muted-foreground">
+                              Task management and view only.
                             </div>
                           </div>
                         </div>
@@ -545,7 +657,7 @@ useEffect(() => {
           <SelectValue placeholder="Select Division" />
         </SelectTrigger>
         <SelectContent>
-          {uniqueDivisions.map((d) => (
+          {divisions.map((d) => (
             <SelectItem key={d.id} value={String(d.id)}>
               {d.name}
             </SelectItem>
@@ -566,7 +678,7 @@ useEffect(() => {
           <SelectValue placeholder="Select Subdivision" />
         </SelectTrigger>
         <SelectContent>
-          {uniqueSubdivisions
+          {subdivisions
             .filter((s) => !formData.divisionId || String(s.division.id) === formData.divisionId)
             .map((s) => (
               <SelectItem key={s.id} value={String(s.id)}>
@@ -589,7 +701,7 @@ useEffect(() => {
           <SelectValue placeholder="Select Designation" />
         </SelectTrigger>
         <SelectContent>
-          {uniqueDesignations.map((d) => (
+          {designations.map((d) => (
             <SelectItem key={d.id} value={String(d.id)}>
               {d.name}
             </SelectItem>
@@ -599,6 +711,26 @@ useEffect(() => {
     </div>
   </div>
 
+<div className="space-y-2">
+  <Label>Reports To</Label>
+  <Select
+    value={formData.reportsToId}
+    onValueChange={(value) =>
+      setFormData((prev) => ({ ...prev, reportsToId: value }))
+    }
+  >
+    <SelectTrigger>
+      <SelectValue placeholder="Select Reporting Officer" />
+    </SelectTrigger>
+    <SelectContent>
+      {users.map((u) => (
+        <SelectItem key={u.id} value={String(u.id)}>
+          {u.firstName} {" "} {u.lastName}({u.department})
+        </SelectItem>
+      ))}
+    </SelectContent>
+  </Select>
+</div>
                 <div className="space-y-4">
                   <Label>Permissions</Label>
                   <div className="space-y-4">
@@ -811,6 +943,7 @@ useEffect(() => {
                               password: "",
                               confirmPassword: "",
                               permissions: user.permissions,
+                              reportsToId: "", 
                             });
                             setShowEditDialog(true);
                           }}
@@ -843,9 +976,12 @@ useEffect(() => {
                             </AlertDialogHeader>
                             <AlertDialogFooter>
                               <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction className="bg-destructive text-destructive-foreground">
-                                Delete User
-                              </AlertDialogAction>
+                              <AlertDialogAction
+                                   onClick={() => {void handleDelete(Number(user.id));}}
+                                  className="bg-destructive text-destructive-foreground"
+                                  disabled={loading}>
+                                 {loading ? "Deleting..." : "Delete User"}
+                             </AlertDialogAction>
                             </AlertDialogFooter>
                           </AlertDialogContent>
                         </AlertDialog>

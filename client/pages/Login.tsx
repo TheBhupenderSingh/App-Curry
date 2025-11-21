@@ -129,7 +129,7 @@ export function Login() {
   const quickLogin = async (userType: "ADMIN" | "HO" | "FO") => {
     const credentials = {
       ADMIN: { email: "karan01@gmail.com", password: "root" },
-      HO: { email: "amank@gmail.com", password: "root" },
+      HO: { email: "kamal@gmail.com", password: "root" },
       FO: { email: "kishorg@gmail.com", password: "root" },
     };
 
@@ -242,7 +242,7 @@ export function Login() {
           {/* Quick Login Demo Cards */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground">
-              Quick Demo Access
+              Quick login tabs
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <Card

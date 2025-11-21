@@ -38,12 +38,15 @@ import NGTPOverview from "./pages/NGTPOverview";
 import ActiveTaxpayerOverview from "./Dashboards/ActiveTaxpayerOverview";
 import SectoralDashboard from "./Dashboards/SectoralDashboard";
 import GstRevenueOverview from "./Dashboards/GstRevenueOverview";
+import DashboardTVPage from "./Dashboards/DashboardTVPage";
+
 
 
 function AppContent() {
   const location = useLocation();
   const [currentUser, setCurrentUser] = useState<any>(null);
   const [userRole, setUserRole] = useState<"ADMIN" | "HO" | "FO" | null>(null);
+  const [isAuthChecking, setIsAuthChecking] = useState(true);  // <-- NEW
 
   // Check authentication status on app load
   useEffect(() => {
@@ -76,6 +79,7 @@ function AppContent() {
             localStorage.removeItem("userEmail");
             localStorage.removeItem("authToken");
           }
+          
         } catch (error) {
           console.error("Token verification error:", error);
           // On network error, allow user to continue (offline capability)
@@ -83,10 +87,17 @@ function AppContent() {
           setUserRole(storedRole as "ADMIN" | "HO" | "FO");
         }
       }
+       setIsAuthChecking(false);   // <-- FINALLY SET
     };
 
     verifyAuthentication();
   }, []);
+
+  if (isAuthChecking) {
+    return null; // or a loader
+  }
+
+  
 
   // Handle logout
   const handleLogout = async () => {
@@ -167,6 +178,8 @@ function AppContent() {
         <Route path="/ActiveTaxpayerOverview" element={<ActiveTaxpayerOverview />} />
         <Route path="/SectoralDashboard" element={<SectoralDashboard />} />
         <Route path="/GstRevenueOverview" element={<GstRevenueOverview />} />
+        <Route path="/TvDashboard" element={<DashboardTVPage />} />
+       
 
         
 

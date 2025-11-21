@@ -7,9 +7,9 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
 const dummyData: Record<string, any> = {
-  "22ABPCS9238K1DZ": {
+  "19ABPCS9238K1DZ": {
     basic: {
-      gstin: "22ABPCS9238K1DZ",
+      gstin: "19ABPCS9238K1DZ",
       trade_name: "JAI INDUSTRIES",
       legal_name: "JAI INDUSTRIES PRIVATE LTD",
       assigned_to: "STATE",
@@ -51,9 +51,9 @@ const dummyData: Record<string, any> = {
     ],
   },
   // Add another GSTIN for testing
-  "22ABWFM9039L1DR": {
+  "19ABWFM9039L1DR": {
     basic: {
-      gstin: "22ABWFM9039L1DR",
+      gstin: "19ABWFM9039L1DR",
       trade_name: "SHREE MOTORS",
       legal_name: "SHREE MOTORS LTD",
       assigned_to: "STATE",
@@ -119,7 +119,7 @@ export default function TaxpayerReport() {
         </CardHeader>
         <CardContent className="flex gap-4">
           <Input
-            placeholder="Enter GSTIN (e.g., 22ABPCS9238K1DZ)"
+            placeholder="Enter GSTIN (e.g., 19ABPCS9238K1DZ)"
             value={gstin}
             onChange={(e) => setGstin(e.target.value)}
           />

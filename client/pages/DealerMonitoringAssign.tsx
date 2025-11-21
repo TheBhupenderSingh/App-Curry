@@ -110,7 +110,7 @@ const DealerMonitoringAssign: React.FC = () => {
         if (userFilters.circle) params.append("subDivisionId", userFilters.circle);
         if (userFilters.designation) params.append("designationId", userFilters.designation);
 
-        const res = await axios.get<Assignment[]>(`http://localhost:9090/admin/assignments?${params.toString()}`);
+        const res = await axios.get<Assignment[]>(`${BASE_URL}/admin/assignments?${params.toString()}`);
         let data = res.data;
 
         // Search by username
