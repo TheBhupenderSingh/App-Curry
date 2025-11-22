@@ -260,20 +260,17 @@ const [dealerRanking, setDealerRanking] = useState<any[]>([]);
         {/* Contribution Pie */}
         <div className="bg-white shadow rounded-xl p-4">
   <h3 className="font-semibold mb-2">% Contribution - SGST + IGST Paid</h3>
-  <ResponsiveContainer width="100%" height={290}>
-    <PieChart>
-      <Pie data={contributionDivision} dataKey="value" nameKey="name" outerRadius={90}>
-        {contributionDivision.map((entry, index) => (
-          <Cell 
-            key={`cell-${index}`} 
-            fill={CIRCLE_COLOR_MAP[entry.name] || "#cccccc"} // Fallback if not found
-          />
-        ))}
-      </Pie>
-      <Tooltip />
-      <Legend />
-    </PieChart>
-  </ResponsiveContainer>
+    <ResponsiveContainer width="100%" height={290}>
+            <PieChart>
+              <Pie data={contributionDivision} dataKey="value" nameKey="name" outerRadius={90}>
+                {contributionDivision.map((_, i) => (
+                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+      </ResponsiveContainer>
 </div>
 
         {/* YOY Change */}

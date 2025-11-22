@@ -245,13 +245,10 @@ const GstRevenueOverview: React.FC = () => {
           <ResponsiveContainer width="100%" height={290}>
             <PieChart>
               <Pie data={filteredPieData} dataKey="value" nameKey="name" outerRadius={90}>
-  {filteredPieData.map((entry, index) => (
-    <Cell
-      key={`cell-${index}`}
-      fill={CIRCLE_COLOR_MAP[entry.name] || "#cccccc"} // fallback if any key missing
-    />
-  ))}
-</Pie>
+                {filteredPieData.map((_, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
               <Tooltip />
               <Legend />
             </PieChart>
